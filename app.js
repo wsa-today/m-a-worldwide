@@ -47,7 +47,10 @@ app.post('/api/add-transaction', (req, res) => {
       meta_description,
       created_by,
       orbit_id,
-      updated_at
+      updated_at,
+      tombstone_top_image,
+      tombstone_bottom_image,
+      member_office,
     } = req.body
     console.log({req: req})
     const sqlInsert = "INSERT INTO transactions VALUES ?";
@@ -71,6 +74,9 @@ app.post('/api/add-transaction', (req, res) => {
       new Date(),
       created_by,
       orbit_id,
+      tombstone_top_image,
+      tombstone_bottom_image,
+      member_office,
     ]]], (err, result) => {
       if(err){
           console.log(err);
